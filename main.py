@@ -1,12 +1,12 @@
-from flask import Flask
+from flask import Flask, jsonify
+from flask_cors import CORS
 from pymongo import MongoClient
 from core.models.user import User
 from core.services.user import UserService
 from core.routes.user import create_user_routes
-from dotenv import load_dotenv
-from flask_cors import CORS
 import os
 
+from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
@@ -21,8 +21,15 @@ db = client["registrations"]
 user_model = User(db)
 user_service = UserService(user_model)
 
-# Register routes
 app.register_blueprint(create_user_routes(user_service))
 
+@app.route("/", methods=["GET"])
+def index():
+    return jsonify({
+        "status": "online",
+        "message": "Registration system is running!"
+    })
+
+# For local development only
 if __name__ == "__main__":
     app.run(debug=True)
