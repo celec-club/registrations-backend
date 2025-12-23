@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, origins=["https://registrations.celec.codes"])
+CORS(app, origins=["https://registrations.celec.codes", "http://localhost:3000"])
 
 # MongoDB setup
 mongo_uri = os.getenv("MONGO_URI")
