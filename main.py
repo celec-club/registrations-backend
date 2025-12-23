@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, origins=["*"])
+CORS(app, origins=["https://registrations.celec.codes"])
 
 # MongoDB setup
 mongo_uri = os.getenv("MONGO_URI")
