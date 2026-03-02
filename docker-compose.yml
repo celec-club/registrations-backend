@@ -3,12 +3,12 @@ services:
     build:
       context: .
       args:
-        DATABASE_URL: ${DATABASE_URL}
+        DATABASE_URL: ${DATABASE_URL_DEPLOY}
     env_file: .env
     ports:
       - "9800:9800"
     environment:
-      DATABASE_URL: ${DATABASE_URL}
+      DATABASE_URL: ${DATABASE_URL_DEPLOY}
       NODE_ENV: production
     depends_on:
       db:
@@ -34,7 +34,7 @@ services:
     command: bunx prisma migrate deploy
     env_file: .env
     environment:
-      DATABASE_URL: ${DATABASE_URL}
+      DATABASE_URL: ${DATABASE_URL_DEPLOY}
       NODE_ENV: production
     depends_on:
       db:
