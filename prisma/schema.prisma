@@ -43,6 +43,6 @@ enum Department {
   communication
   digital_marketing
   external
-  traing
+  training
   design
 }
