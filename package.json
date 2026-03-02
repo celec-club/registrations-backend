@@ -1,0 +1,22 @@
+{
+  "name": "registrations",
+  "module": "app.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "nodemon",
+    "start": "node app.js"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.4.2",
+    "@prisma/client": "^7.4.2",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14",
+    "pg": "^8.19.0",
+    "prisma": "^7.4.2"
+  }
+}
