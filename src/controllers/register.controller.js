@@ -3,7 +3,8 @@ const RegisterService = require("../services/register.service");
 class RegisterController {
   static async create(req, res) {
     try {
-      const student = await RegisterService.create(req.body);
+      const data = req.body;
+      const student = await RegisterService.create(data);
       return res.status(201).json(student);
     } catch (err) {
       console.error(err);
@@ -14,6 +15,10 @@ class RegisterController {
   static async getAll(req, res) {
     try {
       const students = await RegisterService.getAll();
+
+      if (students.length === 0) {
+        return res.status(200).json({ message: "No students registered." });
+      }
       return res.status(200).json(students);
     } catch (err) {
       console.error(err);
