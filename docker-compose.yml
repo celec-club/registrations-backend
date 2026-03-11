@@ -29,16 +29,6 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
-  migrate:
-    build: .
-    command: bunx prisma migrate deploy
-    env_file: .env
-    environment:
-      DATABASE_URL: ${DATABASE_URL_DEPLOY}
-      NODE_ENV: production
-    depends_on:
-      db:
-        condition: service_healthy
 
 volumes:
   postgres_data:
